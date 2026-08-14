@@ -28,15 +28,16 @@ body{
 }
 .wrap{max-width:560px;margin:0 auto;padding:0 16px 64px}
 
-/* Cabeçalho da marca */
 .brand{padding:calc(20px + var(--safe-top)) 0 14px;display:flex;align-items:center;gap:10px}
 .brand .logo{font-weight:700;font-size:18px;letter-spacing:-.3px;color:var(--roxo)}
 .brand .logo b{color:var(--tinta);font-weight:700}
 .brand .tag{margin-left:auto;font-size:12px;color:var(--mut);text-align:right;line-height:1.2}
 h1{font-size:22px;font-weight:600;margin:2px 0 2px;letter-spacing:-.4px}
-.sub{font-size:14px;color:var(--sec);margin:0 0 14px}
+.sub{font-size:14px;color:var(--sec);margin:0 0 12px}
 
-/* Barra de progresso fixa */
+.disc{background:var(--roxo-bg);border:1px solid #E0D6FF;border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--roxo-esc);line-height:1.5;margin-bottom:14px}
+.disc b{font-weight:600}
+
 .sticky{position:sticky;top:0;z-index:10;background:rgba(250,249,252,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:10px 0 12px;margin-bottom:6px;border-bottom:1px solid var(--linha)}
 .prow{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .pcount{font-size:15px;font-weight:600}
@@ -48,7 +49,6 @@ h1{font-size:22px;font-weight:600;margin:2px 0 2px;letter-spacing:-.4px}
 .fill{height:100%;width:0;background:var(--roxo);border-radius:999px;transition:width .35s cubic-bezier(.4,0,.2,1)}
 .fill.full{background:var(--verde)}
 
-/* Toggle campos */
 .opts{display:flex;justify-content:flex-end;margin:10px 0 2px}
 .toggle{font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
 .toggle input{appearance:none;width:34px;height:20px;border-radius:999px;background:var(--linha);position:relative;cursor:pointer;transition:background .2s;flex:none}
@@ -56,12 +56,10 @@ h1{font-size:22px;font-weight:600;margin:2px 0 2px;letter-spacing:-.4px}
 .toggle input::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s}
 .toggle input:checked::after{transform:translateX(14px)}
 
-/* Bloco */
 .bloco{margin-top:22px}
 .bh{display:flex;align-items:center;justify-content:space-between;margin:0 2px 10px;font-size:13px;font-weight:600;color:var(--roxo-esc);text-transform:uppercase;letter-spacing:.4px}
 .bh .bc{font-size:12px;color:var(--mut);font-weight:500;letter-spacing:0}
 
-/* Pergunta */
 .q{display:flex;gap:13px;align-items:flex-start;padding:16px 15px;background:var(--branco);border:1px solid var(--linha);border-radius:16px;margin-bottom:10px;cursor:pointer;transition:opacity .25s,background .25s,border-color .25s;min-height:58px}
 .q:active{background:var(--fundo)}
 .q .mark{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--mut);margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s}
@@ -74,7 +72,6 @@ body.showf .q .qf{display:block}
 .q.done .mark svg{opacity:1;transform:scale(1);stroke:#fff}
 .q.done .qt{text-decoration:line-through;color:var(--sec)}
 
-/* Chips de confirmação */
 .confwrap{margin:-2px 0 12px 39px}
 .conflbl{font-size:12px;color:var(--mut);margin-bottom:7px}
 .chips{display:flex;flex-wrap:wrap;gap:7px}
@@ -82,7 +79,6 @@ body.showf .q .qf{display:block}
 .chip:active{transform:scale(.96)}
 .chip.ok{background:var(--verde-bg);color:var(--verde);border-color:#CDEBDC;text-decoration:line-through}
 
-/* Conclusão */
 .done-banner{display:none;align-items:center;gap:10px;background:var(--verde-bg);border:1px solid #CDEBDC;border-radius:16px;padding:16px;margin-top:18px;color:#1B7A4F;font-weight:500;font-size:15px;line-height:1.4}
 .done-banner.on{display:flex}
 .done-banner svg{flex:none;width:24px;height:24px;stroke:var(--verde)}
@@ -100,13 +96,17 @@ body.showf .q .qf{display:block}
   <h1>Roteiro da Reunião</h1>
   <p class="sub">Vá tocando em cada pergunta conforme cobrir. Quando tudo apagar, a transcrição tem o necessário pro diagnóstico.</p>
 
+  <div class="disc">
+    <b>É uma conversa de descoberta.</b> Hoje é só ouvir — não abra o app, não analise a carteira, não cote nem recomende produto. Isso é outra reunião. E <b>pergunte: não responda pelo cliente.</b>
+  </div>
+
   <div class="sticky">
     <div class="prow">
-      <span class="pcount"><b id="n">0</b> de 15</span>
+      <span class="pcount"><b id="n">0</b> de <span id="tot">14</span></span>
       <button class="reset" id="rst" aria-label="Nova reunião">↺ Nova reunião</button>
     </div>
     <div class="track"><div class="fill" id="bar"></div></div>
-    <div class="pmsg" id="msg">Faltam 15 — toque conforme cobre.</div>
+    <div class="pmsg" id="msg">Toque conforme cobre.</div>
   </div>
 
   <div class="opts">
@@ -129,32 +129,35 @@ const DATA=[
  {n:"1 · Abertura",qs:[
    {t:"Antes de iniciarmos: você já teve um assessor cuidando dos seus investimentos? Como foi, e o que espera de diferente agora? (Se nunca teve, o que te trouxe até nós?)",f:"Aquece a conversa · sem campo"}]},
  {n:"2 · História e trabalho",qs:[
-   {t:"Me conta um pouco da sua trajetória — de onde você veio e o que te trouxe até aqui.",f:"Histórico de vida"},
+   {t:"Onde você nasceu, como foi a sua carreira e como chegou até aqui — pessoal e financeiramente?",f:"Histórico de vida"},
    {t:"E o seu trabalho hoje, como é? Como chegou nele e como se enxerga daqui pra frente?",f:"Perfil profissional"}]},
  {n:"3 · Perfil e família",qs:[
    {t:"Me fala da sua família — quem faz parte dela e quem depende de você.",f:"Família · dependentes",
     confirm:["nascimento (dia/ano)","estado civil","regime de casamento","cidade onde mora","formação","profissão","regime de trabalho","nome da empresa","contribui INSS?","IR completo ou simplificado?"]}]},
- {n:"4 · Sonhos e objetivos",qs:[
-   {t:"Se você tivesse todo o dinheiro de que precisa pra vida toda, o que faria de diferente? Como viveria?",f:"Aspirações"},
-   {t:"No concreto: o que quer realizar no curto, médio e longo prazo? Me dá uma ideia de quanto e quando.",f:"Metas e objetivos"},
-   {t:"Quando gostaria de ter a liberdade de não depender mais do trabalho, e com que padrão de vida? Alguma renda continuaria?",f:"Independência financeira"}]},
- {n:"5 · Finanças e patrimônio",qs:[
-   {t:"Me dá um panorama da sua vida financeira hoje — o que entra, de onde vem e como é o seu custo de vida.",f:"Financeiro"},
-   {t:"E o que você já construiu até aqui — imóveis, empresa, investimentos — e o que ainda tem a pagar?",f:"Patrimônio"},
-   {t:"Tem algum gasto grande ou resgate chegando nos próximos anos? E sua reserva, cobre quanto tempo?",f:"Reserva · circunstâncias"},
-   {t:"Como tem sido sua experiência com investimentos? E quando o mercado balança, como você costuma reagir?",f:"Perfil de investidor"}]},
- {n:"6 · Proteção",qs:[
-   {t:"Como você está protegido hoje se algo sair do esperado — doença, invalidez, ou se você faltar pros seus?",f:"Gestão de risco · seguros"}]},
- {n:"7 · Legado e sucessão",qs:[
+ {n:"4 · Objetivos",qs:[
+   {t:"Tem algo que você ainda quer realizar ou proteger daqui pra frente? O que vem primeiro, quando, e quanto acha que custa?",f:"Metas e objetivos"}]},
+ {n:"5 · Vida financeira",qs:[
+   {t:"Me dá um panorama da sua vida financeira hoje — o que entra, de onde vem (cada fonte) e como é o seu custo de vida.",f:"Receitas por fonte · despesas"},
+   {t:"E o que você já construiu até aqui — imóveis, empresa, investimentos — e o que ainda tem a pagar (dívidas, financiamentos)?",f:"Patrimônio · ativos e passivos"},
+   {t:"Tem algum gasto grande ou resgate chegando nos próximos anos? E sua reserva, hoje, cobre quanto tempo?",f:"Reserva · circunstâncias"}]},
+ {n:"6 · Independência",qs:[
+   {t:"Você imagina um momento de ter a liberdade de não depender do trabalho? Quando, com que padrão de vida, e o que gostaria de fazer nessa fase? Alguma renda continuaria?",f:"Cenários · aspirações"}]},
+ {n:"7 · Perfil de investidor",qs:[
+   {t:"Como foi sua experiência com investimentos até hoje? E se a sua carteira caísse 20% num mês, o que passaria pela sua cabeça — o que você faria?",f:"Perfil de risco — pergunte, não rotule"}]},
+ {n:"8 · Proteção",qs:[
+   {t:"Você tem seguro de vida? Invalidez? Plano de saúde? Se algo acontecer com você, quem depende de você fica coberto?",f:"Seguros · gestão de risco"}]},
+ {n:"9 · Legado e sucessão",qs:[
    {t:"Como gostaria que seu patrimônio cuidasse de quem você ama, no dia em que você não estiver mais aqui?",f:"Intenção de partilha"},
-   {t:"Me conta como está hoje o seu planejamento sucessório — testamento, holding, algo nesse sentido?",f:"Sucessão"},
-   {t:"Algum dos seus bens é anterior ao casamento ou veio de herança?",f:"Origem dos bens · UF"}]}
+   {t:"Já tem algum planejamento sucessório — testamento, holding? (Se não, tudo bem — o \"não\" também é resposta.)",f:"Sucessão"},
+   {t:"Algum dos seus bens é anterior ao casamento ou veio de herança? Em que estado isso corre?",f:"Origem dos bens · UF (base da sucessão)"}]}
 ];
 
+const TOTAL=DATA.reduce((a,b)=>a+b.qs.length,0);
 const KEY="investsmart-roteiro-v1";
 let st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
 const root=document.getElementById("root");
+document.getElementById("tot").textContent=TOTAL;
 let qi=0;
 
 DATA.forEach(b=>{
@@ -201,11 +204,11 @@ function render(){
   });
   document.getElementById("n").textContent=done;
   const bar=document.getElementById("bar");
-  bar.style.width=Math.round(done/15*100)+"%";
-  bar.classList.toggle("full",done===15);
+  bar.style.width=Math.round(done/TOTAL*100)+"%";
+  bar.classList.toggle("full",done===TOTAL);
   const msg=document.getElementById("msg");
-  msg.textContent=done===15?"Tudo coberto ✓":("Faltam "+(15-done)+" — toque conforme cobre.");
-  document.getElementById("bn").classList.toggle("on",done===15);
+  msg.textContent=done===TOTAL?"Tudo coberto ✓":("Faltam "+(TOTAL-done)+" — toque conforme cobre.");
+  document.getElementById("bn").classList.toggle("on",done===TOTAL);
   save();
 }
 document.getElementById("rst").addEventListener("click",()=>{
