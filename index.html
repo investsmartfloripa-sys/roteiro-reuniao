@@ -127,29 +127,29 @@ body.showf .q .qf{display:block}
 const CHECK='<svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>';
 const DATA=[
  {n:"1 · Abertura",qs:[
-   {t:"Antes de iniciarmos: você já teve um assessor cuidando dos seus investimentos? Como foi, e o que espera de diferente agora? (Se nunca teve, o que te trouxe até nós?)",f:"Aquece a conversa · sem campo"}]},
+   {t:"Para começarmos: você já teve algum assessor cuidando dos seus investimentos? Como foi essa experiência, e o que você espera de diferente agora? (Se for a primeira vez, o que te trouxe até nós?)",f:"Aquece a conversa · sem campo"}]},
  {n:"2 · História e trabalho",qs:[
-   {t:"Onde você nasceu, como foi a sua carreira e como chegou até aqui — pessoal e financeiramente?",f:"Histórico de vida"},
-   {t:"E o seu trabalho hoje, como é? Como chegou nele e como se enxerga daqui pra frente?",f:"Perfil profissional"}]},
+   {t:"Eu gostaria de te conhecer um pouco melhor: onde você nasceu, como foi a sua trajetória e como chegou até aqui — pessoal e financeiramente?",f:"Histórico de vida"},
+   {t:"E o seu trabalho hoje, como é? Como você chegou até ele, e como se enxerga daqui pra frente?",f:"Perfil profissional"}]},
  {n:"3 · Perfil e família",qs:[
-   {t:"Me fala da sua família — quem faz parte dela e quem depende de você.",f:"Família · dependentes",
+   {t:"Você poderia me contar um pouco sobre a sua família — quem faz parte dela e quem depende de você?",f:"Família · dependentes",
     confirm:["nascimento (dia/ano)","estado civil","regime de casamento","cidade onde mora","formação","profissão","regime de trabalho","nome da empresa","contribui INSS?","IR completo ou simplificado?"]}]},
  {n:"4 · Objetivos",qs:[
-   {t:"Tem algo que você ainda quer realizar ou proteger daqui pra frente? O que vem primeiro, quando, e quanto acha que custa?",f:"Metas e objetivos"}]},
+   {t:"Existe algo que você ainda gostaria de realizar ou proteger daqui pra frente? Se sim, o que viria primeiro, para quando, e quanto imagina que custaria?",f:"Metas e objetivos"}]},
  {n:"5 · Vida financeira",qs:[
-   {t:"Me dá um panorama da sua vida financeira hoje — o que entra, de onde vem (cada fonte) e como é o seu custo de vida.",f:"Receitas por fonte · despesas"},
-   {t:"E o que você já construiu até aqui — imóveis, empresa, investimentos — e o que ainda tem a pagar (dívidas, financiamentos)?",f:"Patrimônio · ativos e passivos"},
-   {t:"Tem algum gasto grande ou resgate chegando nos próximos anos? E sua reserva, hoje, cobre quanto tempo?",f:"Reserva · circunstâncias"}]},
+   {t:"Você poderia me dar um panorama da sua vida financeira hoje — o que entra, de onde vem (cada fonte) e como é o seu custo de vida?",f:"Receitas por fonte · despesas"},
+   {t:"E o que você já construiu até aqui — imóveis, empresa, investimentos — e o que ainda tem a pagar, como dívidas ou financiamentos?",f:"Patrimônio · ativos e passivos"},
+   {t:"Você tem algum gasto maior ou resgate previsto para os próximos anos? E a sua reserva, hoje, cobriria quanto tempo?",f:"Reserva · circunstâncias"}]},
  {n:"6 · Independência",qs:[
-   {t:"Você imagina um momento de ter a liberdade de não depender do trabalho? Quando, com que padrão de vida, e o que gostaria de fazer nessa fase? Alguma renda continuaria?",f:"Cenários · aspirações"}]},
+   {t:"Você imagina um momento em que teria a liberdade de não depender mais do trabalho? Se sim, quando, com que padrão de vida, e o que gostaria de fazer nessa fase? Alguma renda continuaria?",f:"Cenários · aspirações"}]},
  {n:"7 · Perfil de investidor",qs:[
-   {t:"Como foi sua experiência com investimentos até hoje? E se a sua carteira caísse 20% num mês, o que passaria pela sua cabeça — o que você faria?",f:"Perfil de risco — pergunte, não rotule"}]},
+   {t:"Como tem sido a sua experiência com investimentos até aqui? E se a sua carteira caísse 20% em um mês, o que passaria pela sua cabeça — como você reagiria?",f:"Perfil de risco — pergunte, não rotule"}]},
  {n:"8 · Proteção",qs:[
-   {t:"Você tem seguro de vida? Invalidez? Plano de saúde? Se algo acontecer com você, quem depende de você fica coberto?",f:"Seguros · gestão de risco"}]},
+   {t:"Você tem seguro de vida, invalidez ou plano de saúde? E se algo acontecesse com você, as pessoas que dependem de você ficariam protegidas?",f:"Seguros · gestão de risco"}]},
  {n:"9 · Legado e sucessão",qs:[
-   {t:"Como gostaria que seu patrimônio cuidasse de quem você ama, no dia em que você não estiver mais aqui?",f:"Intenção de partilha"},
-   {t:"Já tem algum planejamento sucessório — testamento, holding? (Se não, tudo bem — o \"não\" também é resposta.)",f:"Sucessão"},
-   {t:"Algum dos seus bens é anterior ao casamento ou veio de herança? Em que estado isso corre?",f:"Origem dos bens · UF (base da sucessão)"}]}
+   {t:"Como você gostaria que o seu patrimônio cuidasse de quem você ama, no dia em que não estiver mais aqui?",f:"Intenção de partilha"},
+   {t:"Você já tem algum planejamento sucessório, como testamento ou holding? (Se ainda não, sem problema — o \"não\" também é uma resposta.)",f:"Sucessão"},
+   {t:"Algum dos seus bens é anterior ao casamento ou veio de herança? E em qual estado você reside atualmente?",f:"Origem dos bens · UF (base da sucessão)"}]}
 ];
 
 const TOTAL=DATA.reduce((a,b)=>a+b.qs.length,0);
