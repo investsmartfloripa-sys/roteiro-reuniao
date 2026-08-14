@@ -102,7 +102,7 @@ body.showf .q .qf{display:block}
 
   <div class="sticky">
     <div class="prow">
-      <span class="pcount"><b id="n">0</b> de <span id="tot">16</span></span>
+      <span class="pcount"><b id="n">0</b> de <span id="tot">18</span></span>
       <button class="reset" id="rst" aria-label="Nova reunião">↺ Nova reunião</button>
     </div>
     <div class="track"><div class="fill" id="bar"></div></div>
@@ -140,19 +140,21 @@ const DATA=[
    {t:"O que mais tem te preocupado ou ocupado a mente ultimamente? E quais são as suas maiores prioridades neste momento?",f:"Preocupações e prioridades · circunstâncias"}]},
  {n:"6 · Vida financeira",qs:[
    {t:"Você poderia me dar um panorama da sua vida financeira hoje — o que entra, de onde vem (cada fonte) e como é o seu custo de vida? (Depois que ele responder, pergunte quanto ele vem conseguindo guardar por mês.)",f:"Receitas · despesas · poupança"},
-   {t:"Quais bens você tem hoje — imóveis, empresa, veículos? E há alguma dívida ou financiamento sobre eles?",f:"Patrimônio · bens e dívidas"},
-   {t:"E os seus investimentos financeiros — em quais instituições estão, e mais ou menos quanto em cada uma?",f:"Investimentos (o detalhe vem do XP)"}]},
- {n:"7 · Independência",qs:[
-   {t:"Você tem algum gasto maior ou resgate previsto para os próximos anos? E a sua reserva hoje — você se sente satisfeito com ela?",f:"Reserva · liquidez futura"},
-   {t:"Você imagina um momento em que teria a liberdade de não depender mais do trabalho? Se sim, quando, com que padrão de vida, e o que gostaria de fazer nessa fase? Alguma renda continuaria?",f:"Cenários · aspirações"}]},
+   {t:"Quais bens você tem hoje — imóveis, empresa, veículos?",f:"Patrimônio · ativos"},
+   {t:"E os seus investimentos financeiros — em quais instituições estão, e mais ou menos quanto em cada uma? Você tem uma reserva de emergência hoje — se sente satisfeito com ela?",f:"Investimentos · reserva"},
+   {t:"Tem algum gasto maior ou resgate que você já prevê pra frente? E alguma dívida hoje no seu nome — financiamento, parcelamento, consórcio — que a gente possa contabilizar como passivo?",f:"Liquidez futura · passivos"}]},
+ {n:"7 · Independência financeira",qs:[
+   {t:"Com que idade você espera alcançar a sua independência financeira — seja para se aposentar, seja apenas para ter mais flexibilidade e não depender do trabalho?",f:"Idade-alvo"},
+   {t:"E qual seria o valor de renda passiva que você tem em mente para essa fase — o valor que representaria tranquilidade pra você?",f:"Consumo desejado · rendas"}]},
  {n:"8 · Perfil de investidor",qs:[
-   {t:"Como tem sido a sua experiência com investimentos até aqui? E se a sua carteira caísse 20% em um mês, o que passaria pela sua cabeça — como você reagiria?",f:"Perfil de risco — pergunte, não rotule"}]},
+   {t:"Como você se vê como investidor — conservador, moderado ou agressivo? E como tem sido a sua experiência com investimentos até aqui?",f:"Perfil de investidor"},
+   {t:"Tem algum tipo de investimento que você gosta, ou algum que prefere evitar? E você tem um objetivo de rentabilidade, ou algum indexador que acompanha como referência?",f:"Preferências · retorno-alvo"},
+   {t:"Você já passou por alguma queda forte do mercado? Como você se sentiu, e o que fez naquele momento?",f:"Risco — pergunte, não rotule"}]},
  {n:"9 · Proteção",qs:[
    {t:"Você tem seguro de vida, invalidez ou plano de saúde? E se algo acontecesse com você, as pessoas que dependem de você ficariam protegidas?",f:"Seguros · gestão de risco"}]},
  {n:"10 · Legado e sucessão",qs:[
-   {t:"Você já pensou em como gostaria que o seu patrimônio fosse transmitido para a sua família mais adiante?",f:"Intenção de partilha"},
-   {t:"Hoje já existe algo organizado nesse sentido — testamento, holding, ou beneficiários definidos em seguros e previdência?",f:"Sucessão · estrutura"},
-   {t:"E parte do que você tem veio de herança, ou já era seu antes do casamento?",f:"Origem dos bens (base da sucessão)"}]}
+   {t:"E parte do que você tem veio de herança, ou já era seu antes do casamento?",f:"Origem dos bens (base da sucessão)"},
+   {t:"Você já chegou a fazer alguma coisa em relação à sua sucessão — testamento, holding, beneficiários definidos? E como gostaria que o seu patrimônio fosse passado adiante?",f:"Sucessão · intenção de partilha"}]}
 ];
 
 const TOTAL=DATA.reduce((a,b)=>a+b.qs.length,0);
