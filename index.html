@@ -102,7 +102,7 @@ body.showf .q .qf{display:block}
 
   <div class="sticky">
     <div class="prow">
-      <span class="pcount"><b id="n">0</b> de <span id="tot">14</span></span>
+      <span class="pcount"><b id="n">0</b> de <span id="tot">16</span></span>
       <button class="reset" id="rst" aria-label="Nova reunião">↺ Nova reunião</button>
     </div>
     <div class="track"><div class="fill" id="bar"></div></div>
@@ -131,22 +131,25 @@ const DATA=[
  {n:"2 · História e trabalho",qs:[
    {t:"Eu gostaria de te conhecer um pouco melhor: onde você nasceu, como foi a sua trajetória e como chegou até aqui — pessoal e financeiramente?",f:"Histórico de vida"},
    {t:"E o seu trabalho hoje, como é? Como você chegou até ele, e como se enxerga daqui pra frente?",f:"Perfil profissional"}]},
- {n:"3 · Perfil e família",qs:[
+ {n:"3 · Prioridades",qs:[
+   {t:"O que mais tem te preocupado ou ocupado a mente ultimamente? E quais são as suas maiores prioridades neste momento?",f:"Preocupações e prioridades · circunstâncias"}]},
+ {n:"4 · Perfil e família",qs:[
    {t:"Você poderia me contar um pouco sobre a sua família — quem faz parte dela? (Deixe ele falar à vontade; depois pergunte se hoje há alguém que conta com você.)",f:"Família · dependentes",
     confirm:["nascimento (dia/ano)","estado civil","regime de casamento","cidade onde mora","formação","profissão","regime de trabalho","nome da empresa","contribui INSS?","IR completo ou simplificado?"]}]},
- {n:"4 · Objetivos",qs:[
+ {n:"5 · Objetivos",qs:[
    {t:"Quando você pensa nos próximos anos, o que é mais importante pra você — algum projeto ou sonho que queira realizar, ou algo que queira garantir e proteger? E, pros que forem mais concretos, me ajuda a entender o quanto e pra quando.",f:"Metas e objetivos"}]},
- {n:"5 · Vida financeira",qs:[
+ {n:"6 · Vida financeira",qs:[
    {t:"Você poderia me dar um panorama da sua vida financeira hoje — o que entra, de onde vem (cada fonte) e como é o seu custo de vida?",f:"Receitas por fonte · despesas"},
-   {t:"E o que você já construiu até aqui — imóveis, empresa, investimentos — e o que ainda tem a pagar, como dívidas ou financiamentos?",f:"Patrimônio · ativos e passivos"},
-   {t:"Você tem algum gasto maior ou resgate previsto para os próximos anos? E a sua reserva, hoje, cobriria quanto tempo?",f:"Reserva · circunstâncias"}]},
- {n:"6 · Independência",qs:[
+   {t:"Quais bens você tem hoje — imóveis, empresa, veículos? E há alguma dívida ou financiamento sobre eles?",f:"Patrimônio · bens e dívidas"},
+   {t:"E os seus investimentos financeiros — em quais instituições estão, e mais ou menos quanto em cada uma?",f:"Investimentos (o detalhe vem do XP)"}]},
+ {n:"7 · Independência",qs:[
+   {t:"Você tem algum gasto maior ou resgate previsto para os próximos anos? E a sua reserva, hoje, cobriria quanto tempo?",f:"Reserva · liquidez futura"},
    {t:"Você imagina um momento em que teria a liberdade de não depender mais do trabalho? Se sim, quando, com que padrão de vida, e o que gostaria de fazer nessa fase? Alguma renda continuaria?",f:"Cenários · aspirações"}]},
- {n:"7 · Perfil de investidor",qs:[
+ {n:"8 · Perfil de investidor",qs:[
    {t:"Como tem sido a sua experiência com investimentos até aqui? E se a sua carteira caísse 20% em um mês, o que passaria pela sua cabeça — como você reagiria?",f:"Perfil de risco — pergunte, não rotule"}]},
- {n:"8 · Proteção",qs:[
+ {n:"9 · Proteção",qs:[
    {t:"Você tem seguro de vida, invalidez ou plano de saúde? E se algo acontecesse com você, as pessoas que dependem de você ficariam protegidas?",f:"Seguros · gestão de risco"}]},
- {n:"9 · Legado e sucessão",qs:[
+ {n:"10 · Legado e sucessão",qs:[
    {t:"Como você gostaria que o seu patrimônio cuidasse de quem você ama, no dia em que não estiver mais aqui?",f:"Intenção de partilha"},
    {t:"Você já tem algum planejamento sucessório, como testamento ou holding? (Se ainda não, sem problema — o \"não\" também é uma resposta.)",f:"Sucessão"},
    {t:"Algum dos seus bens é anterior ao casamento ou veio de herança? E em qual estado você reside atualmente?",f:"Origem dos bens · UF (base da sucessão)"}]}
